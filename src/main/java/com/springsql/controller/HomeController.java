@@ -1,8 +1,11 @@
 package com.springsql.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,21 +21,17 @@ public class HomeController {
     
     @GetMapping("/")
     public ModelAndView home(Detail detail){
-        
-        detail.setName("Sahil");
-        detail.setEmail("Sahil222@gmail.com");
-        detail.setPassword("777");
-        detailRepo.save(detail);
         ModelAndView view  = new ModelAndView();
         view.setViewName("index");        
         
         return view;
     }
     @GetMapping("/getdata")
-    public List<Detail> ajaxController(){
+    public String ajaxController(){
+        JSONObject json = new JSONObject();
         List<Detail> detail = detailRepo.findAll();
-        
-        return detail;
+       json.put("data", detail);
+        return json.toString();
     }
     
 }
