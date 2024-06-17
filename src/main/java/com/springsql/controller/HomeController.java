@@ -33,5 +33,50 @@ public class HomeController {
        json.put("data", detail);
         return json.toString();
     }
+
+///////////////////////////////////////////////////////DataTables Valid Post just change Beans/Entity //////////////////////////////////////////////////
+    // @PostMapping("/save-user")
+    // public Map<String, List<UserDetails>> saveUser(@RequestBody String requestData)
+    //         throws JsonMappingException, JsonProcessingException {
+    //     List<UserDetails> userDetails = new ArrayList<>();
+    //     ObjectMapper objectMapper = new ObjectMapper();
+
+    //     Map<String, Object> map = objectMapper.readValue(requestData, Map.class);
+
+    //     String action = (String) map.get("action");
+    //     System.out.println("Action: " + action);
+
+    //     Map<String, Object> data = (Map<String, Object>) map.get("data");
+    //     data.forEach((key, value) -> {
+    //         UserDetails details = objectMapper.convertValue(value, UserDetails.class);
+    //         long keyId = Integer.parseInt(key);
+    //         switch (action) {
+    //             case "create":
+    //                 UserDetails save = repo.save(details);
+    //                 userDetails.add(save);
+
+    //                 break;
+    //             case "edit":
+    //                 if (details.getFirstName() == null) {
+    //                     UserDetails findByIdUser = repo.findById(keyId).get();
+    //                     findByIdUser.setPassword(details.getPassword());
+    //                     userDetails.add(findByIdUser);
+    //                 } else {
+    //                     details.setId(keyId);
+    //                     userDetails.add(details);
+    //                 }
+
+    //                 break;
+    //             case "remove":
+
+    //                 break;
+
+    //             default:
+    //                 break;
+    //         }
+
+    //     });
+    //     return Map.of("data", userDetails);
+    // }
     
 }
